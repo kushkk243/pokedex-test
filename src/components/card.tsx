@@ -23,8 +23,7 @@ function checkResponse (id: number, setUrl: Function, curl: string): string {
     return curl;
 }
 export default function PokeCard({url}: PokeCardProps) {
-    const [pokemon, setPokemon] = useState(null);
-    const [type, setType] = useState(null);
+    const [pokemon, setPokemon] = useState();
     useEffect(()=>{
         fetch(url)
         .then(response => response.json())
