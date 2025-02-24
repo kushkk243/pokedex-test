@@ -15,7 +15,7 @@ function App() {
     <main className="flex items-center justify-center pt-16 pb-4">
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
         <header className="flex justify-around w-full pb-4 border-b-1 shadow-gray-800 border-gray-900">
-          <div className=" font-[Lexend] text-6xl">POKÉDEX</div>
+          <div className=" font-[Lexend] text-6xl font-bold">POKÉDEX</div>
         </header>
         <div>
         <div className="flex flex-col items-center">
