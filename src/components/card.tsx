@@ -3,6 +3,13 @@ import { useState, useEffect } from "react";
 interface PokeCardProps {
     url: string;
 };
+interface Pokemon {
+    id: number;
+    name: string;
+    types: Array<{type: {name: string, url: string}}>;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 function checkResponse (id: number, setUrl: Function, curl: string): string {
     fetch(`https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`)
     .then(response => {
@@ -23,7 +30,7 @@ function checkResponse (id: number, setUrl: Function, curl: string): string {
     return curl;
 }
 export default function PokeCard({url}: PokeCardProps) {
-    const [pokemon, setPokemon] = useState();
+    const [pokemon, setPokemon] = useState<Pokemon| null>(null);
     useEffect(()=>{
         fetch(url)
         .then(response => response.json())
@@ -33,7 +40,7 @@ export default function PokeCard({url}: PokeCardProps) {
     const [curl, setUrl] = useState("");
     return(
     <div className="w-[240px] h-[320px] bg-transparent rounded-2xl relative it</div>ems-center">
-        <img src={pokemon? checkResponse(pokemon.id, setUrl, curl): "https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/versions/generation-v/black-white/0.png"} alt={pokemon?.name} className="w-[96px] h-[96px] absolute bottom-[160px] z-10 left-[72px]"/>
+        <img src={pokemon? checkResponse( pokemon.id, setUrl, curl): "https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/versions/generation-v/black-white/0.png"} alt={pokemon?.name} className="w-[96px] h-[96px] absolute bottom-[160px] z-10 left-[72px]"/>
         <div className="w-[240px] h-[180px] absolute bottom-0 rounded-xl  inset-shadow-gray-700 inset-shadow-sm bg-gray-950 flex flex-col items-center justify-center">
             <div className="text-white text-center text-xl font-bold font-[Barlow_Condensed]">{pokemon?.name.toUpperCase()}</div>
             <div className="flex flex-row gap-1 p-2 overflow-auto absolute bottom-2">

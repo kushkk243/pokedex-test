@@ -3,7 +3,7 @@ import PokeCard from './components/card'
 import './App.css'
 
 function App() {
-  const [pokelist, setPokeList] = useState();
+  const [pokelist, setPokeList] = useState([]);
   const [limit, setLimit] = useState(20);
   useEffect(()=>{
     fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
