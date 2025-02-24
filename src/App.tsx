@@ -20,7 +20,7 @@ function App() {
         <div>
         <div className="flex flex-col items-center">
           <label htmlFor="limit" className="text-white font-[Lexend]">Number of Pokémon</label>
-        <input type="number" value={limit} onChange={(e) => setLimit(parseInt(e.target.value))} className=" inset-shadow-sm inset-shadow-gray-700 rounded-4xl p-4 font-[Lexend] text-center" aria-label="limit"/>
+        <input type="number" value={limit} onChange={(e) => setLimit(parseInt(e.target.value))} className=" inset-shadow-sm inset-shadow-gray-700 rounded-4xl p-4 font-[Lexend] text-center focus: border-transparent" aria-label="limit"/>
         </div>
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
